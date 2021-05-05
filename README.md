@@ -27,20 +27,21 @@ This GitHub Action keeps build numbers in a separate repository and allows you t
             commit_message: 'A custom message for the commit'
 
         - name: Get the output build number
-          # Use the output from the `hello` step
-          run: echo "The build number is: ${{ steps.action.outputs.build_number }}"
+          # Use the output from the `action` step
+          run: |
+            echo "The build number is: ${{ steps.action.outputs.build_number }}"
 
 # Variables
 
 The `API_TOKEN_GITHUB` needs to be set in the `Secrets` section of your repository options. You can retrieve the `API_TOKEN_GITHUB` [here](https://github.com/settings/tokens) (set the `repo` permissions).
 
-* app_name: The name of your app. This name is used to read the file with the build number, if the file doesn't exist it will be created.
-* versions_repo: The repository where version files are stored.
-* user_email: The GitHub user email associated with the API token secret.
-* user_name: The GitHub username associated with the API token secret.
-* destination_branch: [optional] The branch of the versions repo to update, if not master.
-* should_increase_version: [optional] The flag indicating that it is necessary to increase the build number. Default `true`. If `false`, the current build number will be returned.
-* commit_message: [optional] A custom commit message for the commit. Defaults to `Increased build number of $APP_NAME: $VERSION`
+* **app_name**: The name of your app. This name is used to read the file with the build number, if the file doesn't exist it will be created.
+* **versions_repo**: The repository where version files are stored.
+* **user_email**: The GitHub user email associated with the API token secret.
+* **user_name**: The GitHub username associated with the API token secret.
+* **destination_branch**: [optional] The branch of the versions repo to update, if not master.
+* **should_increase_version**: [optional] The flag indicating that it is necessary to increase the build number. Default `true`. If `false`, the current build number will be returned.
+* **commit_message**: [optional] A custom commit message for the commit. Defaults to `Increased build number of $APP_NAME: $VERSION`
 
 ### Output
 
