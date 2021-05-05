@@ -22,5 +22,6 @@ jobs:
         commit_message: 'A custom message for the commit'
 
     - name: Get the output build number
-      # Use the output from the `hello` step
-      run: echo "The build number is: ${{ steps.action.outputs.build_number }}"
+      # Use the output from the `action` step
+      run: |
+        echo "The build number is: ${{ steps.action.outputs.build_number }}"

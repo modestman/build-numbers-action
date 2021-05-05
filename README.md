@@ -22,7 +22,7 @@ This GitHub Action keeps build numbers in a separate repository and allows you t
             app_name: 'ios-app'
             versions_repo: 'modestman/app-versions'
             should_increase_version: true
-            user_email: 'anton@glezman.ru'
+            user_email: 'mail@example.com'
             user_name: 'CI'
             commit_message: 'A custom message for the commit'
 
