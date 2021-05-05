@@ -15,7 +15,7 @@ This GitHub Action keeps build numbers in a separate repository and allows you t
 
         - name: Increase the build number
           id: action
-          uses: modestman/build-numbers-action@main
+          uses: modestman/build-numbers-action@master
           env:
             API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           with:
