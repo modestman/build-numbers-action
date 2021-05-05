@@ -1,0 +1,26 @@
+name: Get a new build number
+
+on: push
+
+jobs:
+  build-number:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Increase the build number
+      id: action
+      uses: modestman/build-numbers-action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        app_name: 'ios-app'
+        versions_repo: 'modestman/app-versions'
+        user_email: 'anton@glezman.ru'
+        user_name: 'CI'
+        commit_message: 'A custom message for the commit'
+
+    - name: Get the output build number
+      # Use the output from the `hello` step
+      run: echo "The build number is: ${{ steps.action.outputs.build_number }}"
